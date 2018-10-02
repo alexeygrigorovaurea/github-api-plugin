@@ -9,8 +9,8 @@ pipeline {
                     git branch: 'master', credentialsId: 'engbuild-github-credentials',
                         url: 'https://github.com/trilogy-group/eng-build-jenkins-github-api'
                 }
-                sh 'cd github; mvn clean install -DskipTests -DskipITs'
-                sh 'cd ..; mvn clean package  -DskipTests -Dmaven.javadoc.skip=true; cp target/github-api-plugin.hpi target/github-api-plugin.jpi.override'
+                sh 'cd github; mvn clean install -DskipTests -DskipITs; cd ..'
+                sh 'mvn clean package  -DskipTests -Dmaven.javadoc.skip=true; cp target/github-api-plugin.hpi target/github-api-plugin.jpi.override'
             }
         }
     }
