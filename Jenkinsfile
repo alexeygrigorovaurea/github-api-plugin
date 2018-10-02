@@ -14,13 +14,13 @@ pipeline {
                     git branch: 'master', credentialsId: 'engbuild-github-credentials',
                         url: 'https://github.com/trilogy-group/github-api-plugin'
                 }
-                sh 'cd github-plugin; mvn clean package  -DskipTests -Dmaven.javadoc.skip=true; cp target/github-api-plugin.hpi target/github-api-plugin.jpi.override'
+                sh 'cd github-plugin; mvn clean package  -DskipTests -Dmaven.javadoc.skip=true; cp target/github-api.hpi target/github-api.jpi.override'
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: 'github-plugin/target/github-api-plugin.jpi.override', fingerprint: true
+            archiveArtifacts artifacts: 'github-plugin/target/github-api.jpi.override', fingerprint: true
         }
     }
 }
