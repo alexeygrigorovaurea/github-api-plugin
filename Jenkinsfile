@@ -20,7 +20,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'github-plugin/target/github-api.jpi.override', fingerprint: true
+            archiveArtifacts artifacts: 'github-plugin/target/github-api.jpi', fingerprint: true
         }
     }
 }
